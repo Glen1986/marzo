@@ -1,0 +1,529 @@
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+"                                                                              "
+"                       __   _ _ _ __ ___  _ __ ___                            "
+"                       \ \ / / | '_ ` _ \| '__/ __|                           "
+"                        \ V /| | | | | | | | | (__                            "
+"                         \_/ |_|_| |_| |_|_|  \___|                           "
+"                                                                              "
+"                                                                              "
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+"let $vundle=$vimhome."/bundle/Vundle.vim"
+" Be iMproved
+"=====================================================
+"" Vundle settings
+"=====================================================
+call plug#begin()
+    "-------------------=== Code/Project navigation ===-------------
+    Plug 'scrooloose/nerdtree'                " Project and file navigation
+"    Plug 'majutsushi/tagbar'                  " Class/module browser
+"    Plug 'kien/ctrlp.vim'                     " Fast transitions on project files
+
+    "-------------------=== Other ===-------------------------------
+    Plug 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+    Plug 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
+"    Plug 'fisadev/FixedTaskList.vim'          " Pending tasks list
+    Plug 'rosenfeld/conque-term'              " Consoles as buffers
+    Plug 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
+    Plug 'flazz/vim-colorschemes'             " Colorschemes
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'tpope/vim-commentary'
+    "-------------------=== Snippets support ===--------------------
+"    Plug 'garbas/vim-snipmate'                " Snippets manager
+    Plug 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
+    Plug 'tomtom/tlib_vim'                    " dependencies #2
+"    Plug 'honza/vim-snippets'                 " snippets repo
+
+    "-------------------=== Languages support ===-------------------
+    Plug 'tpope/vim-commentary'               " Comment stuff out
+    Plug 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
+    Plug 'Rykka/riv.vim'                      " ReStructuredText plugin
+"    Plug 'Valloric/YouCompleteMe'             " Autocomplete plugin
+    Plug 'Yggdroot/indentLine'
+    "-------------------=== Python  ===-----------------------------
+    Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
+    Plug 'scrooloose/syntastic'               " Syntax checking plugin for Vim
+    Plug 'git nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'airblade/vim-gitgutter'
+"    Plug 'roxma/nvim-completion-manager'
+    Plug 'mattn/emmet-vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'scrooloose/nerdtree'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neco-syntax'  " Fuente general de auto completado
+    Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+    Plug 'othree/html5.vim', { 'for': 'html' }
+    Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+    Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
+    Plug 'vim-scripts/Emmet.vim'
+    Plug 'vim-scripts/WebAPI.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neco-syntax'  " Fuente general de auto completado
+    Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+    Plug 'othree/html5.vim', { 'for': 'html' }
+    Plug 'eslint/eslint'
+    Plug 'w0rp/ale' "muestra errores
+    " Use release branch (recommend)
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-eslint'
+    " Or build from source code by using yarn: https://yarnpkg.com
+    Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+    Plug 'dense-analysis/ale'
+call plug#end()                           " required
+
+let mapleader=" "
+nmap <leader>s <Plug>(easymotion-s2)
+nmap <leader>nt :NERDTreeFind<CR>
+nmap s :w<CR>
+nmap ss :wq<CR>
+nmap 88 :CocCommand eslint.executeAutofix<CR>
+nmap q :q<CR>
+nmap qq :q!<CR>
+
+let g:UltiSnipsEditSplit="vertical"
+
+let g:user_emmet_leader_key=',,'
+let g:user_emmet_mode='ff'    "enable all function in all mode.
+"
+"----------indent line------------------
+"nmap <leader>in :IndentLinesToggle<CR>
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_leadingSpaceChar= '.'
+let g:indentLine_fileType = ['javascript', 'c', 'jsx']
+"let g:indentLine_defaultGroup = 'I'
+" Vim
+let g:indentLine_color_term = 239
+
+" GVim
+let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+
+" Background (Vim, GVim)
+let g:indentLine_bgcolor_term = 202
+let g:indentLine_bgcolor_gui = '#FF5F00'
+let g:vim_json_conceal=1
+"let g:indentLine_concealcursor = 'inc'
+"let g:indentLine_conceallevel = 2
+"let g:indentLine_setConceal = 0
+"let g:indentLine_enabled = 1
+"let g:indentLine_toggle = true
+
+filetype indent on
+
+syntax on
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set backupdir=/tmp//,.
+set clipboard=unnamedplus,unnamed
+set colorcolumn=80
+
+set number
+set relativenumber
+set backspace=2
+set mouse=a
+set numberwidth=1
+set clipboard=unnamed
+"syntax enable
+set showcmd
+set ruler
+set encoding=utf-8
+set showmatch
+set expandtab
+set sw=2 ts=2 sts=4
+set laststatus=2
+set wildmenu
+set confirm
+set hidden
+set incsearch
+
+
+
+"set filetype
+"filetype on
+filetype plugin on
+filetype plugin indent on
+set smartindent
+
+"autocmd BufRead,BufWritePre *.sh normal gg=G
+
+set autoindent
+
+
+"set ai
+"set si
+"set shiftwidth=4
+"set cindent
+"set pastetoggle=yy
+
+
+
+"let g:ale_fixers = {
+" \ 'javascript': ['eslint']
+" \ }
+"let g:ale_sign_error = '❌'
+"let g:ale_sign_warning = '⚠️'
+"let g:ale_fix_on_save = 1
+
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+
+
+" ================================================================
+" vim-jsx
+" ================================================================
+" allow jsx syntax in .js files
+"let g:jsx_ext_required=0
+
+" ================================================================
+" vim-airline
+" ================================================================
+" update airline to use solarized
+
+let g:airline_theme='tomorrow'
+
+"let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
+
+
+
+"git
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
+nmap ]h <Plug>(GitGutterNextHunk) "same as default
+nmap [h <Plug>(GitGutterPrevHunk) "same as default
+
+"nmap ghs <Plug>(GitGutterStageHunk)
+"nmap ghu <Plug>(GitGutterUndoHunk)
+
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+" YouCompleteMe
+"	set completeopt-=preview
+
+let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf=0
+
+
+" In ~/.vim/ftplugin/javascript.vim, or somewhere similar.
+
+" Enable ESLint only for JavaScript.
+"let b:ale_linters = ['eslint']
+
+" Equivalent to the above.
+"let b:ale_linters = {'javascript': ['eslint']}
+"
+" In ~/.vim/vimrc, or somewhere similar.
+"let g:ale_linters = {
+"\   'javascript': ['eslint'],
+"\}
+"typerscript
+
+
+"let g:typescript_compiler_binary = 'tsc'
+"let g:typescript_compiler_options = 'tscc'
+"autocmd FileType typescript :set makeprg=tsc
+"autocmd QuickFixCmdPost [^l]* nested cwindow
+"autocmd QuickFixCmdPost    l* nested lwindow
+"let g:typescript_ignore_typescriptdoc
+"let g:typescript_ignore_browserwords
+" In ~/.vim/vimrc, or somewhere similar.
+"let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+"let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+" In ~/.vim/ftplugin/jsx.vim, or somewhere similar.
+
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+"call deoplete#custom#option('sources', {
+"\ '_': ['ale', 'foobar'],
+"\})
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+"
+" You should not turn this setting on if you wish to use ALE as a completion
+" source for other completion plugins, like Deoplete.
+let g:ale_completion_enabled = 1
+let g:ale_fixers = {
+\  'css':        ['prettier'],
+\  'javascript': ['prettier-standard'],
+\  'json':       ['prettier'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['prettier'],
+\  'yml':        ['prettier']
+\}
+let g:ale_linters = {
+\  'css':        ['csslint'],
+\  'javascript': ['standard'],
+\  'json':       ['jsonlint'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['sasslint'],
+\  'yaml':       ['yamllint']
+\}
+let g:ale_linters_explicit = 1
+let g:ale_open_list        = 0
+let b:ale_linter_aliases = ['css', 'javascript']
+let b:ale_linters = ['stylelint', 'eslint']
+let g:ale_fix_on_save              = 1
+let g:ale_lint_on_enter            = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave     = 0
+let g:ale_lint_on_save             = 1
+"let g:ale_lint_on_text_changed     = 'never'
+"augroup FiletypeGroup
+"    autocmd!
+"    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+"augroup END
+
+" In ~/.vim/ftplugin/python.vim
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['flake8', 'pylint']
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+" Show 5 lines of errors (default: 10)
+let g:ale_list_window_size = 5
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
+"=====================================================
+"" General settings
+"=====================================================
+"syntax enable                               " syntax highlight
+
+"set backspace=indent,eol,start              " backspace removes all (indents, EOLs, start) What is start?
+
+"set scrolloff=10                            " let 10 lines before/after cursor during scroll
+
+"set clipboard=unnamed                       " use system clipboard
+
+let g:coc_global_extensions=[
+      \ 'coc-css',
+      \ 'coc-pairs',
+      \ 'coc-eslint',
+      \ 'coc-stylelintplus',
+      \ 'coc-cssmodules',
+      \ 'coc-docker',
+      \ 'coc-eslint8',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-prettier',
+      \ 'coc-tsserver',
+      \ 'coc-yaml',
+      \ 'coc-emmet',
+      \ 'coc-vimlsp',
+      \ ]
+
+
+
+"completion
+"if !has('nvim')
+"    Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+
+
+
+colorscheme gruvbox 
+
+let g:gruvbox_contrast_dark = "hard"
+let g:airline#extensions#tabline#enabled = 1 
+let g:gruvbox_hls_cursor = "bg3"
+let g:gruvbox_color_column = "bg2"
+let g:jupyter_mapkeys = 0
+
+"command! -bang -bar -nargs=* Gpush execute 'Dispatch<bang> -dir=' .
+"      \ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+"command! -bang -bar -nargs=* Gfetch execute 'Dispatch<bang> -dir=' .
+"     \ fnameescape(FugitiveGitDir()) 'git fetch' <q-args>
+
+
+set noshowmode
+
+set hidden
+"set incommand=split
+
+"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+
+"let g:user_emmet_settings = webapi#json#decode(
+"\  join(readfile(expand('~/.snippets.json')), "\n"))
+
+
+
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
+
+let g:user_emmet_settings = {
+\  'variables': {'lang': 'ja'},
+\  'html': {
+\    'default_attributes': {
+\      'option': {'value': v:null},
+\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
+\    },
+\    'snippets': {
+\      'html:5': "<!DOCTYPE html>\n"
+\              ."<html lang=\"${lang}\">\n"
+\              ."<head>\n"
+\              ."\t<meta charset=\"${charset}\">\n"
+\              ."\t<title></title>\n"
+\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+\              ."</head>\n"
+\              ."<body>\n\t${child}|\n</body>\n"
+\              ."</html>",
+\    },
+\  },
+\}
+
+
+
+
+"=====================================================
+"" TagBar settings
+"=====================================================
+let g:tagbar_autofocus=0
+let g:tagbar_width=42
+autocmd BufEnter *.py :call tagbar#autoopen(0)
+
+"=====================================================
+"" SnipMate settings
+"=====================================================
+"let g:snippets_dir='~/.vim/vim-snippets/snippets'
+"let g:snipMate = {'snippet_version' : 1}
+
+"=====================================================
+"" Riv.vim settings
+"=====================================================
+"let g:riv_disable_folding=1
+
+"=====================================================
+"" Python settings
+"=====================================================
+
+" python executables for different plugins
+let g:pymode_python='python3'
+let g:syntastic_python_python_exec='python3'
+
+" rope
+let g:pymode_rope=0
+let g:pymode_rope_completion=0
+let g:pymode_rope_complete_on_dot=0
+let g:pymode_rope_auto_project=0
+let g:pymode_rope_enable_autoimport=0
+let g:pymode_rope_autoimport_generate=0
+let g:pymode_rope_guess_project=0
+
+" documentation
+let g:pymode_doc=0
+let g:pymode_doc_bind='K'
+
+" lints
+let g:pymode_lint=0
+
+" virtualenv
+let g:pymode_virtualenv=1
+
+" breakpoints
+let g:pymode_breakpoint=1
+let g:pymode_breakpoint_key='<leader>b'
+
+" syntax highlight
+let g:pymode_syntax=1
+let g:pymode_syntax_slow_sync=1
+let g:pymode_syntax_all=1
+let g:pymode_syntax_print_as_function=g:pymode_syntax_all
+let g:pymode_syntax_highlight_async_await=g:pymode_syntax_all
+let g:pymode_syntax_highlight_equal_operator=g:pymode_syntax_all
+let g:pymode_syntax_highlight_stars_operator=g:pymode_syntax_all
+let g:pymode_syntax_highlight_self=g:pymode_syntax_all
+let g:pymode_syntax_indent_errors=g:pymode_syntax_all
+let g:pymode_syntax_string_formatting=g:pymode_syntax_all
+let g:pymode_syntax_space_errors=g:pymode_syntax_all
+let g:pymode_syntax_string_format=g:pymode_syntax_all
+let g:pymode_syntax_string_templates=g:pymode_syntax_all
+let g:pymode_syntax_doctests=g:pymode_syntax_all
+let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
+let g:pymode_syntax_builtin_types=g:pymode_syntax_all
+let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
+let g:pymode_syntax_docstrings=g:pymode_syntax_all
+
+" highlight 'long' lines (>= 80 symbols) in python files
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType python,rst,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python,rst,c,cpp match Excess /\%81v.*/
+    autocmd FileType python,rst,c,cpp set nowrap
+    autocmd FileType python,rst,c,cpp set colorcolumn=80
+augroup END
+
+" code folding
+let g:pymode_folding=0
+
+" pep8 indents
+let g:pymode_indent=2
+
+" code running
+let g:pymode_run=1
+let g:pymode_run_bind='<F5>'
+
+" syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_aggregate_errors=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_error_symbol='X'
+let g:syntastic_style_error_symbol='X'
+let g:syntastic_warning_symbol='x'
+let g:syntastic_style_warning_symbol='x'
+let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python3']
+
+
+"nmap <leader>g :YcmCompleter GoTo<CR>
+"nmap <leader>d :YcmCompleter GoToDefinition<CR>
