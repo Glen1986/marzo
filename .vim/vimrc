@@ -28,6 +28,8 @@ call plug#begin()
     Plug 'flazz/vim-colorschemes'             " Colorschemes
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'tpope/vim-commentary'
+"    Plug 'ryanoasis/vim-devicons'
+    Plug 'sbdchd/neoformat'
     "-------------------=== Snippets support ===--------------------
 "    Plug 'garbas/vim-snipmate'                " Snippets manager
     Plug 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
@@ -100,6 +102,8 @@ let g:user_emmet_mode='em'    "enable all function in all mode.
 "----------indent line------------------
 "nmap <leader>in :IndentLinesToggle<CR>
 "Conceal settings
+
+let g:indentLine_enabled = 1
 let g:indentLine_setConceal = 1
 let g:indentLine_concealcursor = "incv"
 
@@ -135,6 +139,9 @@ filetype indent on
 
 syntax on
 set autoindent 
+set smartindent
+set smarttab
+set showcmd
 set autoread
 set backspace=indent,eol,start
 set backupdir=/tmp//,.
@@ -162,6 +169,9 @@ set confirm
 set hidden
 set incsearch
 
+set foldmethod=syntax
+set foldlevel=99
+
 
 
 "set filetype
@@ -174,6 +184,7 @@ set smartindent
 
 set autoindent
 
+set guifont=DroidSansMono\ Nerd\ Font:h12 
 
 "set ai
 "set si
